@@ -66,3 +66,5 @@ In order to create this many through many relationship we had to do a few things
             * grade_level, ball_type
         * creates a new ball instance with ball_type
         * passes a single ball instance to all students of a specified grade_level
+
+## errors with relationship, tables don't seem to be  returning records
