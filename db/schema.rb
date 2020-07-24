@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_24_133930) do
+ActiveRecord::Schema.define(version: 2020_07_24_172300) do
+
+  create_table "ball_students", force: :cascade do |t|
+    t.integer "ball_id"
+    t.integer "student_id"
+  end
+
+  create_table "balls", force: :cascade do |t|
+    t.string "ball_type"
+    t.boolean "inflated"
+  end
 
   create_table "grade_levels", force: :cascade do |t|
     t.string "grade"
@@ -21,12 +31,10 @@ ActiveRecord::Schema.define(version: 2020_07_24_133930) do
   create_table "students", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "grade"
   end
 
   create_table "teachers", force: :cascade do |t|
     t.string "last_name"
-    t.string "grade_level"
     t.integer "years_of_experience"
   end
 

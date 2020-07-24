@@ -23,3 +23,46 @@ In order to create this many through many relationship we had to do a few things
         1) We could create an instance method Student#skip_grade that increases/changes the student's grade_level by 1. This would also require assigning a new teacher, unless the current teacher has classes in both grades - which is also possible with this model.
 
         2) We could also have Student#change_classes in which we assign the student a different teacher, so long as that teacher is in the same grade as the previous one.
+
+---
+# Josh's Deliverables
+## Additional Relationship
+### Ball >———< BallStudent >———< Student
+
+## Deliverables:
+* Attributes:
+    * Ball:
+        * ball_type
+            * examples, as strings:
+                * football, basketball, golf ball, medicine ball, yoga ball, etc
+            * random ball chosen automatically upon instantiation
+        * inflated
+            * boolean
+            * defaults to true
+    * BallStudent:
+        * ball_id
+        * student_id
+    * Student:
+        * first_name, last_name, grade_level
+* instance methods
+    * student#take_random_ball
+        * creates a new ball instance and pushes it into that student’s balls array
+        * sets that ball’s inflated attribute to false
+    * student#choose_ball
+        * takes an argument of ball type
+        * creates a new ball instance and passes ball_type for the ball's ball_type attribute
+    * student#pass_ball
+        * takes a ball instance from the student’s balls array
+        * pushes the same ball instance into another student’s balls array
+    * student#teachers_pet
+        * calls on the class method Ball.inflate_balls
+    * ball#deflate
+        * sets a ball instance’s inflated attribute to false
+* class methods
+    * Ball.inflate_all
+        * sets all balls inflated attribute to true
+    * Student.grade_game
+        * takes as arguments:
+            * grade_level, ball_type
+        * creates a new ball instance with ball_type
+        * passes a single ball instance to all students of a specified grade_level
