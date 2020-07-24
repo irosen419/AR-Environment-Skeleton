@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_07_23_210441) do
 
   create_table "grade_levels", force: :cascade do |t|
@@ -22,12 +23,24 @@ ActiveRecord::Schema.define(version: 2020_07_23_210441) do
     t.string "first_name"
     t.string "last_name"
     t.string "grade"
+=======
+ActiveRecord::Schema.define(version: 2020_07_24_004439) do
+
+  create_table "animals", force: :cascade do |t|
+    t.string "species"
+    t.string "conservation_status"
+    t.integer "conservation_fund_id"
+    t.integer "zoo_id"
+>>>>>>> 97000082b6c26d07549751f467bfc87fb659d12b
   end
 
-  create_table "teachers", force: :cascade do |t|
-    t.string "last_name"
-    t.string "grade_level"
-    t.integer "years_of_experience"
+  create_table "conservation_funds", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "zoos", force: :cascade do |t|
+    t.string "location"
+    t.string "name"
   end
 
 end
