@@ -2,7 +2,7 @@ Student.delete_all
 Teacher.delete_all
 GradeLevel.delete_all
 
-GradeLevel.create_grades
+#GradeLevel.create_grades
 
 Teacher.create({last_name: "Williams", years_of_experience: 7})
 Teacher.create({last_name: "Grubb", years_of_experience: 4})
@@ -33,6 +33,12 @@ Student.create(first_name: "Samantha", last_name: "Yu")
 Student.create(first_name: "Courageous", last_name: "Quixotl")
 Student.create(first_name: "Stupendous", last_name: "Quixotl")
 Student.create(first_name: "Lothlorien", last_name: "Samwise")
+
+GradeLevel.create(grade: "1th", student_id: Student.all[0].id, teacher_id: Teacher.all[0].id)
+GradeLevel.create(grade: "2th", student_id: Student.all[1].id, teacher_id: Teacher.all[1].id)
+GradeLevel.create(grade: "3th", student_id: Student.all[2].id, teacher_id: Teacher.all[2].id)
+GradeLevel.create(grade: "4th", student_id: Student.all[3].id, teacher_id: Teacher.all[3].id)
+
 
 # Teacher.grade_assignment
 # Student.random_grade_assignment

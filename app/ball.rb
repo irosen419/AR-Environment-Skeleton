@@ -4,15 +4,14 @@ class Ball < ActiveRecord::Base
     after_initialize :init
 
     def init
-        self.random_ball_assignment
         self.inflated = true
     end
 
-    def random_ball_assignment
+    def self.random_ball
         r = Random.new
         index = r.rand(0...5)
         ball_types = ["football", "baseball", "basketball", "golf ball", "yoga ball"]
-        self.ball_type = ball_types[index]
+        ball_types[index]
     end
 
     def deflate
@@ -26,6 +25,8 @@ class Ball < ActiveRecord::Base
     end
 
     def self.create_10_balls
-        10.times {Ball.create}
+        10.times {
+            self.create(ball_type: self.random_ball)
+        }
     end
 end

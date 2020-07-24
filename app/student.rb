@@ -5,24 +5,26 @@ class Student < ActiveRecord::Base
     has_many :balls, through: :ball_students
 
     def self.all_in_grade(input_grade)
-        self.all.select {|student| student.grade == input_grade}
+        GradeLevel.all.map do |gl|
+            Student.all.select {|student| student.id == gl.student_id}
+        end.flatten
     end
-
+#COME BACK TO THIS
     def enter_grade(grade_as_number)
         grade = GradeLevel.all.find_by("#{grade_as_number}th")
         grade.students << self
+        
     end
-
+#COME BACK TO THIS
     def self.random_grade_assignment
-        r = Random.new
-        grade = r.rand(1..12)
         self.all.each do |student|
+            grade = rand(1..12)
             student.enter_grade(grade)
         end
     end
 
     def take_random_ball
-        ball = Ball.create
+        ball = Ball.all.sample
         self.balls << ball
     end
 
