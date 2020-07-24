@@ -35,25 +35,25 @@ Student.create(first_name: "Stupendous", last_name: "Quixotl")
 Student.create(first_name: "Lothlorien", last_name: "Samwise")
 
 # Teacher.grade_assignment
-Student.random_grade_assignment
+# Student.random_grade_assignment
 
-#add seeds for new methods
+# #add seeds for new methods
 
-#ball
-Ball.create_10_balls
+# #ball
+# Ball.create_10_balls
 
-#each student takes a ball
-Student.all.each do |student|
-    student.take_random_ball
-end
+# #each student takes a ball
+# Student.all.each do |student|
+#     student.take_random_ball
+# end
 
-#pass_ball
-sam = Student.find_by(first_name: "Samantha")
-amory = Student.find_by(first_name: "Amory")
-sam.pass_ball("football", sam.first_name)
+# #pass_ball
+# sam = Student.find_by(first_name: "Samantha")
+# amory = Student.find_by(first_name: "Amory")
+# sam.pass_ball("football", sam.first_name)
 
-#Student.grade_game
-Student.grade_game(GradeLevel.find_by(grade: "10th"), Ball.all[0])
+# #Student.grade_game
+# Student.grade_game(GradeLevel.find_by(grade: "10th"), Ball.all[0])
 
-sam.teachers_pet
+# sam.teachers_pet
 
